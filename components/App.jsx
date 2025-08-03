@@ -6,10 +6,11 @@ function App() {
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/questions")
-      .then((res) => res.json())
-      .then(setQuestions);
-  }, []);
+  fetch("http://localhost:4000/questions")
+    .then((res) => res.json())
+    .then((data) => setQuestions(data));
+}, []);
+
 
   function addQuestion(newQuestion) {
     setQuestions([...questions, newQuestion]);
